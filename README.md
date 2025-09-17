@@ -4,6 +4,7 @@ Emotional Worlds is an interactive web project that combines Computer Science + 
 The website allows users to type a short text, and an AI-based sentiment analyzer detects the emotional tone.
 Based on the result, the site plays a matching video background + audio soundscape to create an immersive emotional experience.
 
+
 **🎯 Project Goals**
 
 Explore how AI sentiment analysis can interpret human emotions.
