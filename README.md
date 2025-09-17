@@ -1,4 +1,4 @@
-🌊 Emotional Worlds
+#🌊 Emotional Worlds
 
 Emotional Worlds is an interactive web project that combines Computer Science + Design + Interactivity.
 The website allows users to type a short text, and an AI-based sentiment analyzer detects the emotional tone.
