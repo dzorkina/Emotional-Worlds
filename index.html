@@ -16,3 +16,40 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Jaldi:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
+<body>
+
+  <header class="header" role="banner">
+    <input type="checkbox" id="menu-toggle">
+<label for="menu-toggle" class="menu-icon" aria-label="Open navigation menu">☰</label>
+
+<nav class="nav-links" role="navigation">
+  <a href="index.html" class="nav-item">Home</a>
+  <a href="feedback.html" class="nav-item">Feedback</a>
+  <a href="contact.html" class="nav-item">Contact me</a>
+  <a href="credits.html" class="nav-item">Credits</a>
+  <a href="who.html" class="nav-item">Who and How created</a>
+</nav>
+
+<label for="menu-toggle" class="close-icon" aria-label="Close navigation menu">✖</label>
+
+    <h1>Emotional Worlds</h1>
+  </header>
+
+
+<main>
+  <p class="description">Please write below your feelings and thoughts for the day.</p>
+
+  <form id="feedbackForm" class="input-box">
+    <textarea id="message" placeholder="Enter your feelings and thoughts"></textarea>
+    <button type="submit" class="send-btn">
+      <img src="send.png" alt="Send">
+    </button>
+  </form>
+
+  <div id="response" class="response"></div>
+</main>
+
+<script src="main.js"></script>
+</body>
+</html>
