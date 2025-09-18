@@ -18,18 +18,47 @@
 </head>
 
 <body class="results-page">
-  <main>
+
+  <div id="loading-screen">
+  <p class="loading-text"> Creating your world<span class="dots"></span> </p>
+
+  <!-- контейнер для множества звёзд -->
+  <div class="sparkles">
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+  </div>
+</div>
+
+
+
+  <main id="result" style="display: none;">
     <h1 id="emotion"></h1>
     <p id="prompt"></p>
   </main>
 
   <script>
+    document.getElementById("loading-screen").style.display = "flex";
+    document.getElementById("result").style.display = "none";
+
     const emotion = localStorage.getItem("emotion");
     const prompt = localStorage.getItem("prompt");
 
     if (emotion && prompt) {
-      document.getElementById("emotion").textContent = emotion.toUpperCase();
-      document.getElementById("prompt").textContent = prompt;
+      setTimeout(() => {
+        document.getElementById("loading-screen").style.display = "none";
+        document.getElementById("result").style.display = "block";
+
+        document.getElementById("emotion").textContent = emotion.toUpperCase();
+        document.getElementById("prompt").textContent = prompt;
+      }, 2500); // чуть дольше, чтобы звёзды успели "помигать"
     } else {
       document.body.innerHTML = "<p>No results found. Please try again.</p>";
     }

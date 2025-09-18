@@ -24,6 +24,7 @@ document.getElementById("feedbackForm").addEventListener("submit", async functio
     localStorage.setItem("emotion", data.emotion);
     localStorage.setItem("prompt", data.prompt);
 
+
     // переход на страницу с результатом
     window.location.href = "ready.html";
 
