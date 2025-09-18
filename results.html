@@ -17,16 +17,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Jaldi:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
-<body class="ready-page">
-
+<body class="results-page">
   <main>
-    <p class="description">Please put on and turn on your headphones
-     for a full immersion experience </p>
-
-    <button class="ready-btn" onclick="window.location.href='results.html'">
-      I’m Ready
-    </button>
+    <h1 id="emotion"></h1>
+    <p id="prompt"></p>
   </main>
 
+  <script>
+    const emotion = localStorage.getItem("emotion");
+    const prompt = localStorage.getItem("prompt");
+
+    if (emotion && prompt) {
+      document.getElementById("emotion").textContent = emotion.toUpperCase();
+      document.getElementById("prompt").textContent = prompt;
+    } else {
+      document.body.innerHTML = "<p>No results found. Please try again.</p>";
+    }
+  </script>
 </body>
 </html>

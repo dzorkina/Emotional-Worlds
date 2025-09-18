@@ -10,7 +10,7 @@ document.getElementById("feedbackForm").addEventListener("submit", async functio
 
   try {
     // отправляем POST-запрос на сервер
-    await fetch("/process-message", {
+    const response = await fetch("http://127.0.0.1:5000/process-message", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -18,7 +18,13 @@ document.getElementById("feedbackForm").addEventListener("submit", async functio
       body: JSON.stringify({ text: message })
     });
 
-    // если всё ок → переходим на другую страницу
+    const data = await response.json(); // читаем JSON {emotion: "...", prompt: "..."}
+
+    // сохраняем в localStorage, чтобы показать на ready.html
+    localStorage.setItem("emotion", data.emotion);
+    localStorage.setItem("prompt", data.prompt);
+
+    // переход на страницу с результатом
     window.location.href = "ready.html";
 
   } catch (error) {
