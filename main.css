@@ -257,3 +257,162 @@ background: rgba(58, 98, 97, 0.9);
   50% { opacity: 1; transform: scale(1.2) translateY(-30px); }
   100% { opacity: 0; transform: scale(0.5) translateY(-60px); }
 }
+
+/*FEEDBACK PAGE*/
+.feedback-wrapper {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.feedback-title {
+  font-family: "Italiana", serif;
+  font-weight: 400;
+  font-size: 2.2rem;
+  margin: 20px 0 34px;
+}
+
+.feedback-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.fb-label {
+  font-family: 'Jaldi', sans-serif;
+  text-align: left;
+  font-size: 1rem;
+  opacity: 0.95;
+}
+
+.fb-input,
+.fb-textarea {
+  width: 100%;
+  background: #fff;
+  color: #333;
+  border: none;
+  border-radius: 15px;
+  padding: 20px 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  font-family: 'Jaldi', sans-serif;
+  font-size: 1rem;
+  outline: none;
+}
+
+.fb-input:focus,
+.fb-textarea:focus {
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.35);
+}
+
+.fb-submit {
+  justify-self: end;
+  margin-top: 10px;
+  background: #ffffff;
+  color: #1f3434;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 24px;
+  font-family: 'Jaldi', sans-serif;
+  font-size: 1.05rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.fb-submit:hover {
+    transform: scale(1.20);
+  color : #ffffff;
+  background: rgb(173, 190, 190);
+  box-shadow: 0 0 10px rgba(249, 249, 249, 0.7),
+              0 0 00px rgba(226, 224, 246, 0.6);
+}
+
+/* status text */
+.fb-status {
+  min-height: 22px;
+  margin-top: 4px;
+  text-align: left;
+  font-family: 'Jaldi', sans-serif;
+}
+.fb-status.ok {
+  color: #e9ffe9;
+  text-shadow: 0 0 10px rgba(249,249,249,.35), 0 0 20px rgba(226,224,246,.45);
+}
+.fb-status.error { color: #ffe1e1; }
+
+/* ===== Footer ===== */
+.footer {
+  background: #4E7271;
+  padding: 80px 16px 80px;
+}
+
+.footer-wrap {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;   /* слева / центр / справа */
+  align-items: center;
+  gap: 16px;
+}
+
+/* Left */
+.footer .brand {
+  margin-top: -120px;
+  margin-left: -60px;
+  font-size: clamp(20px, 3.2vw, 50px); 
+  font-weight: 400;
+}
+
+/* Middle */
+.footer .middle {
+  text-align: center;
+}
+.footer .contact-title {
+  font-size: clamp(14px, 1.8vw, 25px);
+}
+
+.footer .contact-link {
+  text-decoration: none;
+  color: #fff;
+  font-size: clamp(15px, 1.8vw, 25px);
+}
+.footer .contact-link:hover { text-decoration: underline; }
+
+/* Right */
+.footer .right { display: flex; justify-content: flex-end; }
+.footer-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;                       
+  align-items: flex-end;           
+}
+.footer-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: clamp(16px, 1.8vw, 22px);
+}
+.footer-nav a:hover { text-decoration: underline; }
+
+/* Feedback status messages */
+
+.fb-status {
+  font-family: 'Jaldi', sans-serif;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center; 
+}
+
+.fb-status:empty {
+  display: none; 
+}
+
+.fb-status.success {
+  color: #94edc0; 
+}
+
+.fb-status.error {
+  color: #a23b4e; 
+}
