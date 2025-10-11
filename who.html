@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon setup -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="shortcut icon" href="favicon.ico">
+  <title>Emotional Worlds</title>
+
+  <link rel="stylesheet" href="main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Jaldi:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="header" role="banner">
+    <input type="checkbox" id="menu-toggle">
+<label for="menu-toggle" class="menu-icon" aria-label="Open navigation menu">☰</label>
+
+<nav class="nav-links" role="navigation">
+  <a href="index.html" class="nav-item">Home</a>
+  <a href="feedback.html" class="nav-item">Feedback</a>
+  <a href="contact.html" class="nav-item">Contact me</a>
+  <a href="credits.html" class="nav-item">Credits</a>
+  <a href="who.html" class="nav-item">Who and How created</a>
+</nav>
+
+<label for="menu-toggle" class="close-icon" aria-label="Close navigation menu">✖</label>
+
+<section class="about-me">
+    <h1>Who Created</h1>
+    <div class="about-me-content">
+      <div class="about-me-image">
+        <img src="images/My.jpeg" alt="Portrait of Daria " class="portrait">
+      </div>
+      <div class="about-me-text">
+        <p>
+        My name is Daria. I’m a graphic designer and computer science graduate student specializing in front-end development, machine learning, and AI-driven design. Passionate about creating interactive, emotionally intelligent digital experiences that connect technology and art.
+        </p>
+          <p>
+        <strong>Emotional Worlds</strong> invites users to express how they feel and watch their emotions come to life. 
+        Using AI-driven sentiment analysis, each message transforms into an immersive world of sound and motion, 
+        turning data into emotion and emotion into experience.
+         </p>
+        <p>See more of my work: <a href="https://www.behance.net/amedesn" target="_blank">Behance</a></p>
+        <p>Follow me on: <a href="https://github.com/dzorkina" target="_blank">GitHub</a></p>
+      </div>
+    </div>
+  </section>
+
+  
+<section class="design-process">
+  <h1>How it was created</h1>
+  <p>
+    <strong>Emotional Worlds</strong> was built as an intersection of <em>graphic design, frontend development,</em><em>machine learning model</em> and <em>artificial intelligence.</em>  
+    The goal was to create an interactive environment that translates user emotions into immersive audiovisual experiences.  
+    Every stage of the development was designed to combine aesthetic expression with data-driven logic.
+  </p>
+
+  <p>
+    The frontend was developed with <strong>HTML, CSS, and JavaScript</strong> to ensure smooth interaction and responsive design.  
+    The website captures user input, sends it to the backend, and dynamically displays the generated emotional scene.  
+    All visuals and soundscapes were curated to reflect different emotional states — such as calmness, sadness, excitement, or inspiration.
+  </p>
+
+
+      <div class="image-row">
+      <img src="Images/html.png" alt="Coding the layout">
+      <img src="Images/CSS.png" alt="Coding the layout">
+      <img src="Images/java.png" alt="Coding the layout">
+    </div>
+
+  <p>
+  The backend is powered by <strong>Python</strong> and integrates a fine-tuned machine learning model for emotion recognition,  
+  based on <em>j-hartmann/emotion-english-distilroberta-base</em> (Hugging Face).  
+  The model was <strong>further trained and customized</strong> on an extended dataset to better capture nuanced emotional expressions  
+  and adapt to the project’s creative context.  
+  The AI processes the user’s text, identifies the underlying emotion, and returns a structured JSON response containing emotion labels, confidence scores, and descriptive prompts.  
+  A custom mapping then connects each detected emotion to specific video and audio environments, creating a cohesive emotional experience.
+ </p>
+
+   <div class="image-row">
+      <img src="Images/diagram.png" alt="Flow diagram of the process">
+      <img src="Images/python.png" alt="Coding the layout">
+    </div>
+
+  <p>
+    The project demonstrates how <strong>AI-driven sentiment analysis</strong> can enhance digital experiences, making them more personal and emotionally intelligent.  
+    It also explores the role of visual and sound design in shaping human perception, offering a foundation for future research in interactive and therapeutic design.
+  </p>
+
+
+</section>
+
+  <footer class="footer">
+  <div class="footer-wrap">
+    <div class="footer-col left">
+      <h2 class="brand">Emotional Worlds</h2>
+    </div>
+
+    <div class="footer-col middle">
+      <p class="contact-title">Want to contact me?</p>
+      <a class="contact-link" href="mailto:daria.zork@gmail.com">Click here</a>
+    </div>
+
+    <nav class="footer-col right" aria-label="Footer navigation">
+      <ul class="footer-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="credits.html">Credits</a></li>
+        <li><a href="who.html">Who and How Created</a></li>
+      </ul>
+    </nav>
+  </div>
+  </footer>
+</body>
+</html>

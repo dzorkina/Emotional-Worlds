@@ -5,31 +5,31 @@ from transformers import pipeline
 app = Flask(__name__)
 CORS(app)
 
-# Загружаем готовую модель эмоций
+# готовая модель эмоций
 MODEL_NAME = "j-hartmann/emotion-english-distilroberta-base"
 analyzer = pipeline("text-classification", model=MODEL_NAME)
 
-# === Маппинг эмоций (кастомные категории) ===
+# Маппинг эмоций 
 def map_emotion(label: str, text: str) -> str:
     label = label.lower()
     t = text.lower()
 
     if label == "joy":
-        if any(word in t for word in ["love", "in love", "crush", "romantic", "люблю", "влюблен"]):
+        if any(word in t for word in ["love", "in love", "crush", "romantic"]):
             return "love"
     if label == "sadness":
-        if any(word in t for word in ["tired", "sleep", "exhausted", "устал", "сонный"]):
+        if any(word in t for word in ["tired", "sleep", "exhausted"]):
             return "tired"
     if label == "fear":
-        if any(word in t for word in ["nervous", "anxious", "worry", "нервн", "тревож"]):
+        if any(word in t for word in ["nervous", "anxious", "worry", "afriad", "stress", "panic"]):
             return "nervousness"
     if label in ["sadness", "fear"]:
-        if any(word in t for word in ["embarrass", "awkward", "стыд", "смущ"]):
+        if any(word in t for word in ["embarrass", "awkward", "shame"]):
             return "embarrassment"
 
     return label
 
-# === Генерация промпта под эмоцию ===
+#  Генерация промпта под эмоцию 
 def build_prompt(emotion: str) -> str:
     e = emotion.lower()
     mapping = {
