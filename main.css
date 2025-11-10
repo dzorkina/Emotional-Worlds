@@ -307,6 +307,7 @@ background: rgba(58, 98, 97, 0.9);
 .fb-submit {
   justify-self: end;
   margin-top: 10px;
+  margin-bottom: 50px;
   background: #ffffff;
   color: #1f3434;
   border: none;
@@ -415,4 +416,218 @@ background: rgba(58, 98, 97, 0.9);
 
 .fb-status.error {
   color: #a23b4e; 
+}
+
+/* Who and how page */
+
+.about-me, .design-process {
+  max-width: 78.13vw; 
+  margin: 3.75rem auto;
+  padding: 1.25rem;
+  text-align: center;
+  color: #f8f0d9;
+}
+
+.about-me h1, .design-process h1 {
+  font-size: 4rem;
+  font-family: 'Italiana', sans-serif;
+  margin-bottom: 2.5rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.about-me p, .design-process p {
+  font-family:'Jaldi', sans-serif;
+  font-size: 1.65rem;
+  line-height: 1.8;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.about-me a {
+  color: #a2cdf3; 
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.about-me a:hover {
+  color:  #f8f0d9; 
+  text-decoration: underline;
+}
+
+.about-me img.portrait {
+  width: 15rem;
+  height: auto;
+  border-radius: 10%;
+  margin: 1.875rem auto;
+  box-shadow: 0 0 0.938rem rgba(255, 255, 255, 0.2);
+  display: block;
+}
+
+.image-row {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 1.875rem;
+}
+
+.image-row img {
+  width: 11.25rem;
+  height: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 0.75rem rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.image-row img:hover {
+  transform: scale(2.5);
+}
+
+/* Contact */
+
+.contact-wrapper {
+  max-width: 1600px;
+  margin: 8rem auto;
+  padding: 2rem;
+}
+
+.contact-page .subtitle {
+  font-family: 'Italiana', sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  margin-top: -5rem;
+}
+
+
+.contact-page .intro {
+  font-size: 1.4rem;
+  line-height: 2.5;
+  margin-bottom: 3rem;
+}
+
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  font-weight: 600;
+}
+
+.contact-list a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-list a:hover {
+  color: antiquewhite;
+  transform: scale(1.05);
+  text-shadow: 0 0 10px rgba(255,255,255,0.5),
+               0 0 20px rgba(226,224,246,0.6);
+}
+
+
+.note {
+  margin-top: 4.5rem;
+  font-size: 1.2rem;
+}
+
+.note a {
+  color: #fff;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.note a:hover {
+  color: #1f3434;
+}
+
+
+
+@media (min-width: 340px) and (max-width: 670px) {
+
+    .header h1 {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    margin: 80px auto 20px;
+    max-width: 90%;
+  }
+
+  .about-me h1, .design-process h1 {
+    font-size: 2rem;
+  }
+
+  .about-me-text p , .design-process p {
+    font-size: 1.5rem;
+  }
+
+  .feedback-wrapper {
+    padding: 10px 30px;
+  }
+
+.contact-page .subtitle {
+  font-size: 1.75rem;
+}
+
+.contact-page .intro {
+  font-size: 1.1rem;
+}
+
+.contact-list a {
+  font-size: 1.2rem;
+}
+
+.note {
+  font-size: 1rem;
+}
+
+}
+
+@media (max-width: 619px) {
+ .footer {
+    padding: 40px 16px; 
+  }
+
+  .footer-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 35px; 
+  }
+
+  .footer .brand {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+
+  .footer .middle,
+  .footer .right {
+    text-align: center;
+  }
+
+  .footer-nav {
+    align-items: center;
+    gap: 20px;
+  }
+
+  .footer-nav a {
+    font-size: 1.2rem;
+  }
+
+  .footer .middle,
+  .footer .middle * {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    line-height: 1.3;
+  }
 }
