@@ -18,7 +18,7 @@ document.getElementById("feedbackForm").addEventListener("submit", async functio
       body: JSON.stringify({ text: message })
     });
 
-    const data = await response.json(); // читаем JSON {emotion: "...", prompt: "..."}
+    const data = await response.json(); // читаем JSON {emotion, prompt}
 
     // сохраняем в localStorage, чтобы показать на ready.html
     localStorage.setItem("emotion", data.emotion);
