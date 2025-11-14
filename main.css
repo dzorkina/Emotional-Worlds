@@ -415,7 +415,7 @@ background: rgba(58, 98, 97, 0.9);
 }
 
 .fb-status.error {
-  color: #a23b4e; 
+  color: #9f0622; 
 }
 
 /* Who and how page */
@@ -544,6 +544,41 @@ background: rgba(58, 98, 97, 0.9);
 
 .note a:hover {
   color: #1f3434;
+}
+
+/* Поля ввода и текстовые области */
+.fb-input,
+.fb-textarea {
+  width: 90%;
+  max-width: 80rem;
+  border: 2px solid #bee2de;
+  border-radius: 0.6rem;
+  padding: 0.7rem 1rem;
+  margin-bottom: 1.4rem;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  font-family: "Nunito", sans-serif;
+  color: #373452;
+  background-color: #f8f8ff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fb-input:focus,
+.fb-textarea:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(123, 69, 100, 0.25);
+}
+
+/* Подсветка ошибок и валидности */
+.feedback-form.submitted .fb-input:invalid,
+.feedback-form.submitted .fb-textarea:invalid {
+  border-color: #dc1d1d;
+  background-color: #f7d6d6;
+}
+
+.feedback-form.submitted .fb-input:valid,
+.feedback-form.submitted .fb-textarea:valid {
+  border-color: #bee2de;
+  background-color: #f6fff6;
 }
 
 
