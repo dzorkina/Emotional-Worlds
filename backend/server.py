@@ -34,61 +34,80 @@ def build_prompt(emotion: str) -> str:
     e = emotion.lower()
     mapping = {
         "joy": (
-            "Generate a 15-second bright and uplifting video. "
-            "Use golden-hour lighting, a warm pastel color palette, and a gentle camera push-in. "
-            "Add floating confetti-like particles. "
-            "The soundtrack should be upbeat acoustic music."
+            "Generate a 15-second warm and uplifting video. "
+            "Show a gentle walk through a sunlit park with butterflies drifting in the air. "
+            "Use golden-hour lighting, soft pastel tones, and smooth camera movement. "
+            "The atmosphere should feel peaceful, joyful, and emotionally comforting. "
         ),
         "sadness": (
-            "Generate a 15-second calm and introspective video. "
-            "Use cool blue tones, show light rain on a window, and apply a slow dolly camera movement with soft bokeh. "
-            "The soundtrack should be sparse piano ambient in a minor key."
+            "Generate a 15-second calm and reflective video. "
+            "Show a quiet walk through a dim forest during light rain, with soft mist and droplets on leaves. "
+            "Use cool blue tones, slow camera pans, and a grounding, safe atmosphere. "
+            "The scene should feel soothing and supportive rather than heavy. "
         ),
         "anger": (
-            "Generate a 15-second intense and high-contrast video. "
-            "Use deep reds and blacks, quick cuts, and a handheld camera feel with subtle glitch effects. "
-            "The soundtrack should be a percussive dark synth rhythm."
-        ),
-        "fear": (
-            "Generate a 15-second suspenseful and dimly lit video. "
-            "Use a desaturated palette, slow zooms, mist ambience, and long shadows. "
-            "The soundtrack should be a low, droning ambient sound."
+            "Generate a 15-second grounding and calming video. "
+            "Show a flowing river pushing through smooth rocks with steady, rhythmic motion. "
+            "Use deep natural tones, slow stabilized camera movement, and a sense of release. "
+            "The scene should help diffuse tension and restore balance. "
+            "The soundtrack should be low rhythmic ambient with a calm pulse."
+        ),,
+       "fear": (
+            "Generate a 15-second reassuring and peaceful video. "
+            "Show a softly lit safe space, such as a warm cabin interior with a small lantern glowing. "
+            "Use desaturated warm tones, gentle zooms, and calm shadow play. "
+            "The atmosphere should feel protective and grounding. "
+            "The soundtrack should be low, warm ambient sound."
         ),
         "disgust": (
-            "Generate a 15-second uneasy and textured video. "
-            "Apply a sickly green tint, show macro shots of organic surfaces, and use erratic camera shifts. "
-            "The soundtrack should be dissonant ambient textures."
+            "Generate a 15-second clean and refreshing video. "
+            "Show flowing clear water over smooth stones, with gentle ripples and soft sunlight. "
+            "Use cool, fresh tones and slow cleansing camera movement. "
+            "The scene should evoke purity, clarity, and emotional reset. "
+            "The soundtrack should be soft water ambient with light chimes."
         ),
         "surprise": (
-            "Generate a 15-second dynamic and playful video. "
-            "Use bright pops of color, quick reveals, whip-pan transitions, and bursts of particles. "
+            "Generate a 15-second bright and playful video. "
+            "Show the sudden reveal of a beautiful scenic overlook as the camera moves through soft curtains of light. "
+            "Use vivid pops of color, light bursts, and smooth transitions. "
+            "The atmosphere should feel exciting but positive and gentle. "
             "The soundtrack should be light, plucky melodies."
         ),
-        "neutral": (
-            "Generate a 15-second balanced and ambient video. "
-            "Use soft neutral tones, gentle gradients, and slow camera movements. "
-            "The soundtrack should be warm, minimal background music."
-        ),
+       "neutral": (
+            "Generate a 15-second balanced and soothing video. "
+            "Show soft clouds slowly drifting across a calm sky with gentle sunlight. "
+            "Use neutral warm tones, smooth gradients, and very slow camera movement to evoke stability and ease. "
+            "The atmosphere should feel steady, grounding, and emotionally neutral-positive. "
+            "The soundtrack should be warm minimal ambient music with soft tones."
+        ),,
         "love": (
             "Generate a 15-second warm and romantic video. "
-            "Use soft pink and red tones, blurred lights in the background, and smooth slow camera moves. "
-            "The soundtrack should be gentle acoustic or romantic piano."
+            "Show glowing sky lanterns being released into a calm evening sky. "
+            "Use soft pink and red tones, floating lights, and gentle slow-motion movement. "
+            "The atmosphere should feel tender, hopeful, and emotionally supportive. "
+            "The soundtrack should be gentle acoustic or soft romantic piano."
         ),
         "embarrassment": (
-            "Generate a 15-second slightly awkward but light video. "
-            "Use pale pastel tones, quick hesitant camera movements, and small visual stumbles like flickers. "
-            "The soundtrack should be quirky, playful music with pauses."
+            "Generate a 15-second light and slightly awkward but comforting video. "
+            "Show a cozy pastel-colored room with small, humorous visual stumbles like flickers or gentle camera hesitations. "
+            "Use soft warm lighting and a friendly, non-judgmental atmosphere. "
+            "The scene should feel relatable and safe. "
+            "The soundtrack should be quirky, playful music with soft pauses."
         ),
         "nervousness": (
-            "Generate a 15-second tense and jittery video. "
-            "Use shaky handheld camera style, cold lighting, and fast small zooms. "
-            "The soundtrack should be minimal high-pitched ambient with irregular beats."
-        ),
+            "Generate a 15-second calming and grounding video. "
+            "Show a close-up of warm string lights gently flickering in a quiet room. "
+            "Use soft focus, slow breathing-like camera movement, and warm ambient light. "
+            "The scene should reduce tension and provide reassurance. "
+             "The soundtrack should be minimal ambient with steady, soothing tones."
+    ),
         "tired": (
-            "Generate a 15-second sleepy and slow video. "
-            "Use dim warm lighting, soft blur, and very slow camera pans. "
-            "The soundtrack should be a quiet lullaby-like ambient."
-        )
+            "Generate a 15-second restful and soothing video. "
+            "Show slow ocean waves rolling gently toward the shore at sunset. "
+            "Use warm dim lighting, soft blur, and very slow camera pans to evoke relaxation. "
+            "The atmosphere should feel restorative and peaceful. "
+            "The soundtrack should be quiet lullaby-like ambient with ocean tones."
+        ),
     }
     return mapping.get(e, mapping["neutral"])
 
