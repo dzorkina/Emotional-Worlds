@@ -9,6 +9,32 @@ CORS(app)
 MODEL_NAME = "j-hartmann/emotion-english-distilroberta-base"
 analyzer = pipeline("text-classification", model=MODEL_NAME)
 
+# Self-harm / suicide trigger
+
+SELF_HARM_PATTERNS = [
+    r"\bsuicide\b",
+    r"\bkill myself\b",
+    r"\bend my life\b",
+    r"\bi want to die\b",
+    r"\bself[- ]harm\b",
+    r"\bhurt myself\b",
+    r"\bno reason to live\b",
+    r"\bcan't go on\b",
+]
+
+def detect_self_harm(text: str) -> bool:
+    t = text.lower()
+    return any(re.search(p, t, flags=re.IGNORECASE) for p in SELF_HARM_PATTERNS)
+
+SELF_HARM_NOTICE_EN = (
+    "It sounds like you're going through something really hard. "
+    "I’m not a medical professional, but you deserve real support right now.\n\n"
+    "If you’re in immediate danger or might hurt yourself, call your local emergency number right now.\n"
+    "If you're in the U.S., you can call or text 988 (Suicide & Crisis Lifeline).\n"
+    "If you're outside the U.S., tell me your country and I’ll share local crisis resources.\n\n"
+    "For now, here’s a gentle, comforting scene to help you breathe and ground."
+)
+
 # Маппинг эмоций 
 def map_emotion(label: str, text: str) -> str:
     label = label.lower()
@@ -21,7 +47,7 @@ def map_emotion(label: str, text: str) -> str:
         if any(word in t for word in ["tired", "sleep", "exhausted"]):
             return "tired"
     if label == "fear":
-        if any(word in t for word in ["nervous", "anxious", "worry", "afriad", "stress", "panic"]):
+        if any(word in t for word in ["nervous", "anxious", "worry", "afraid", "stress", "panic"]):
             return "nervousness"
     if label in ["sadness", "fear"]:
         if any(word in t for word in ["embarrass", "awkward", "shame"]):
@@ -51,7 +77,7 @@ def build_prompt(emotion: str) -> str:
             "Use deep natural tones, slow stabilized camera movement, and a sense of release. "
             "The scene should help diffuse tension and restore balance. "
             "The soundtrack should be low rhythmic ambient with a calm pulse."
-        ),,
+        ),
        "fear": (
             "Generate a 15-second reassuring and peaceful video. "
             "Show a softly lit safe space, such as a warm cabin interior with a small lantern glowing. "
@@ -79,7 +105,7 @@ def build_prompt(emotion: str) -> str:
             "Use neutral warm tones, smooth gradients, and very slow camera movement to evoke stability and ease. "
             "The atmosphere should feel steady, grounding, and emotionally neutral-positive. "
             "The soundtrack should be warm minimal ambient music with soft tones."
-        ),,
+        ),
         "love": (
             "Generate a 15-second warm and romantic video. "
             "Show glowing sky lanterns being released into a calm evening sky. "
@@ -111,7 +137,8 @@ def build_prompt(emotion: str) -> str:
     }
     return mapping.get(e, mapping["neutral"])
 
-# === Flask endpoint ===
+# Endpoint
+
 @app.post("/process-message")
 def process_message():
     data = request.get_json(silent=True) or {}
@@ -119,6 +146,18 @@ def process_message():
     if not text:
         return jsonify({"error": "No text provided"}), 400
 
+    # 1) SAFETY GATE (before model)
+    if detect_self_harm(text):
+        return jsonify({
+            "text": text,
+            "self_harm": True,
+            "notice": SELF_HARM_NOTICE_EN,
+            "emotion": "joy",
+            "score": 1.0,
+            "prompt": build_prompt("joy")
+        })
+
+    # 2) NORMAL FLOW
     result = analyzer(text)[0]
     emotion = map_emotion(result["label"], text)
     score = float(result["score"])
@@ -126,6 +165,7 @@ def process_message():
 
     return jsonify({
         "text": text,
+        "self_harm": False,
         "emotion": emotion,
         "score": score,
         "prompt": prompt
@@ -133,4 +173,3 @@ def process_message():
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5000, debug=True)
-

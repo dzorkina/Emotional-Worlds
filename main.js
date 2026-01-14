@@ -23,7 +23,12 @@ document.getElementById("feedbackForm").addEventListener("submit", async functio
     // сохраняем в localStorage, чтобы показать на ready.html
     localStorage.setItem("emotion", data.emotion);
     localStorage.setItem("prompt", data.prompt);
+    localStorage.setItem("self_harm", String(!!data.self_harm));
+    localStorage.setItem("notice", data.notice || "");
 
+    if (data.self_harm && data.notice) {
+    alert(data.notice);
+    }
 
     // переход на страницу с результатом
     window.location.href = "ready.html";
@@ -34,7 +39,7 @@ document.getElementById("feedbackForm").addEventListener("submit", async functio
   }
 });
 
-// ===== Enter вместо кнопки Send =====
+//  Enter вместо кнопки Send 
 const textarea = document.getElementById("message");
 const sendBtn = document.querySelector(".send-btn");
 

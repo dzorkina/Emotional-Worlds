@@ -84,7 +84,6 @@
   </div>
   </footer>
 </body>
-</html>
 
 <script>
 const form = document.getElementById("feedbackForm");
@@ -94,10 +93,10 @@ form.addEventListener("submit", async function(e) {
   e.preventDefault();
   form.classList.add("submitted");
 
-  // Убираем старые подсветки
+  // Снимаем старые подсветки ошибок
   form.querySelectorAll(".invalid").forEach(el => el.classList.remove("invalid"));
 
-  // Проверка заполнения
+  // Проверка заполнения всех required полей
   let isValid = true;
   form.querySelectorAll("[required]").forEach(input => {
     if (!input.value.trim()) {
@@ -112,6 +111,16 @@ form.addEventListener("submit", async function(e) {
     return;
   }
 
+  // Проверка корректности email
+  const emailInput = document.getElementById("fb-email");
+  if (!emailInput.validity.valid) {
+    emailInput.classList.add("invalid");
+    status.textContent = "❗ Please enter a valid email address.";
+    status.className = "fb-status visible error";
+    return;
+  }
+
+  // Передаём данные формы
   const data = new FormData(form);
 
   try {
@@ -126,8 +135,6 @@ form.addEventListener("submit", async function(e) {
     if (res.ok) {
       status.textContent = "✅ Thank you! Your feedback was sent.";
       status.className = "fb-status visible success";
-
-
       form.reset();
       form.classList.remove("submitted");
     } else {
@@ -140,3 +147,6 @@ form.addEventListener("submit", async function(e) {
   }
 });
 </script>
+</html>
+
+
